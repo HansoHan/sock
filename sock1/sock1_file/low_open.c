@@ -11,5 +11,18 @@ int main(void)
 	fd=open("data.txt", O_CREAT|O_WRONLY|O_TRUNC);
 	if(fd==-1)
 		error_handling("open() error!");
-	printf("file descriptor: %d \n", fd_
+	printf("file descriptor: %d \n", fd);
+	
+	if(write(fd, buf, sizeof(buf))==-1)
+		error_handling("write() error");
+	close(fd);
+	return 0;
+}
 
+void error_handling(char *message)
+{
+	fputs(message, stderr);
+	fputc('\n', stderr);
+	exit(1);
+}
+	
