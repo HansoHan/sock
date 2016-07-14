@@ -24,6 +24,7 @@ _실제 소켓이 사용할 최종 프로토콜 정보는 socket 함수의 세�
 * 소켓의 타입 (Type)  
 소켓의 타입이란 소켓의 __데이터 전송방식__을 의미한다.  
 1. 연결지향형 소켓(__SOCK_STREAM__)  
+
 중간에 데이터가 소멸되지 않고 목적지로 전송된다.  
 전송 순서대로 데이터가 수신된다.  
 전송되는 데이터의 경계(Boundary)가 존재하지 않는다.  
@@ -31,7 +32,9 @@ _실제 소켓이 사용할 최종 프로토콜 정보는 socket 함수의 세�
 연결지향형 소켓은 자신과 연결된 상대 소켓의 상태를 파악해가면서 데이터를 전송한다.  
 혹시 데이터가 전송되지 않았다면 데이터를 재전송하기까지 한다.  
 연결지향형 소켓 하나는 다른 연결지향형 소켓 하나와만 연결이 가능하다.  
+
 2. 비 연결지향형 소켓(__SOCK_DGRAM__)  
+
 전송된 순서에 상관없이 가장 빠른 전송을 지향한다.  
 전송된 데이터는 손실의 우려가 있고 파손의 우려가 있다.  
 전송되는 데이터의 경계(Boundary)가 존재한다.  
@@ -41,6 +44,8 @@ _실제 소켓이 사용할 최종 프로토콜 정보는 socket 함수의 세�
 * 프로토콜의 최종 선택  
 세 번째인자로 그냥 0을 넘겨줘도 우리가 원하는 소켓을 생성할 수 있다.  하지만 하나의 프로토콜 체계 안에 데이터의 전송방식이 동일한 프로토콜이 둘 이상 존재하는 경우 때문에 세 번째 인자는 필요하다.
 ```c
-int tcp_socket = socket(PF_INET, SOCK_STREAM, __IPPROTO_TCP__); //이 경우 IPPROTO_TCP는 생략 가능하다. 이 자리에 0을 쓸 수 있다.
-int udp_socket = socket(PF_INET, SOCK_DGRAM, __IPPROTP_UDP__);
+#include <sys/socket.h>
+
+int tcp_socket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP); //이 경우 IPPROTO_TCP는 생략 가능하다. 이 자리에 0을 쓸 수 있다.
+int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTP_UDP);
 ```
