@@ -5,7 +5,7 @@
 	**1** Standard Output  
 	**2** Standard Error  
 
-****************
+***
 
 * File Open
 ```C
