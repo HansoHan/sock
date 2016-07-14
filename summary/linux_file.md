@@ -1,6 +1,6 @@
 ##Chapter 1 - 01-2
 
-* File Descriptor (File Handle)
+* File Descriptor (File Handle)  
 	**0** Standard Input  
 	**1** Standard Output  
 	**2** Standard Error  
@@ -12,5 +12,6 @@
 #include <fcntl.h>
 
 int open(const char *path, int flag);
-```
-	**path**  
+```  
+	**path** : address of the string representing the file name.
+	**flag** : delivering the information of the file's open mode. 
