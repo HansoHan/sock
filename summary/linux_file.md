@@ -1,9 +1,9 @@
 ##Chapter 1 - 01-2
 
 * File Descriptor (File Handle)
-	**0** Standard Input
-	**1** Standard Output
-	**2** Standard Error
+	**0** Standard Input  
+	**1** Standard Output  
+	**2** Standard Error  
 ----
 * File Open
 ```C
