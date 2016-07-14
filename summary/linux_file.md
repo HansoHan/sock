@@ -4,7 +4,7 @@
 	**0** Standard Input  
 	**1** Standard Output  
 	**2** Standard Error  
----------------
+****
 * File Open
 ```C
 #include <sys/types.h>
@@ -13,5 +13,5 @@
 
 int open(const char *path, int flag);
 ```  
-**path** : address of the string representing the file name.
+**path** : address of the string representing the file name.  
 **flag** : delivering the information of the file's open mode. 
