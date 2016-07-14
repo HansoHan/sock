@@ -4,7 +4,7 @@
 	**0** Standard Input  
 	**1** Standard Output  
 	**2** Standard Error  
-****
+____________________________________
 * File Open
 ```C
 #include <sys/types.h>
