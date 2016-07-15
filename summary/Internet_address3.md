@@ -61,3 +61,27 @@ socklen_t     // 길이정보 (length of struct)
 in_addr_t     // IP 주소 정보, uint32_t로 정의되어 있음  
 in_port_t     // PORT 번호 정보, uint16_t로 정의되어 있음  
 ```
+***
+* 구조체 **sockaddr_in**의 멤버에 대한 분석  
+>멤버 **sin_family**  
+AF_INET : IPv4 인터넷 프로토콜에 적용하는 주소체계  
+AF_INET6 : IPv6 인터넷 프로토콜에 적용하는 주소체계
+AF_LOCAL : 로컬 통신을 위한 유닉스 프로토콜의 주소체계  
+
+>멤버 **sin_port**  
+16비트 PORT 번호를, *__'네트워크 바이트 순서'__*로 저장한다.  
+
+>멤버 **sin_addr**  
+32비트 IP 주소 정보를, *__'네트워크 바이트 순서'__*로 저장해야 한다.  
+
+>멤버 **sin_zero**  
+단순히 구조체 sockaddr_in의 크기를 구조체 sockaddr와 일치시키기 위해 삽입된 멤버이다. 그러나 반드시 0으로 채워야 한다.  
+
+사실 bind 함수는 __sockaddr__ 구조체 변수의 __주소 값__을 요구한다.
+```c
+struct sockaddr
+{
+  sa_family_t   sin_family;  //주소체계, address family  
+  char          sa_data[14]; //주소정보
+};
+```
