@@ -21,5 +21,19 @@ TCP와 UDP 소켓은 PORT번호를 공유하지 않기 때문에 중복되어도
 
 ***
 
-* IPv4 기반의 주소표현을 위한 __구조체__
-
+* IPv4 기반의 주소표현을 위한 __구조체__  
+"목적지 주소의 표현 방법", 이 구조체는 bind 함수에 주소정보를 전달하는 용도로 사용된다.  
+```c
+struct sockaddr_in
+{
+  sa_family_t     sin_family; //주소 체계(Address Family)
+  unit16_t        sin_port;   //16비트 TCP/UDP PORT번호
+  struct in_addr  sin_addr;   //32비트 IP주소
+  char            sin_zero[8] //사용되지 않음
+};
+```
+```c
+struct in_addr
+{
+  in_addr_t       s_addr;     //32비트 IPv4 인터넷 주소
+};
