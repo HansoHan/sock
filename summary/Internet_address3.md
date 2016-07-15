@@ -37,3 +37,27 @@ struct in_addr
 {
   in_addr_t       s_addr;     //32비트 IPv4 인터넷 주소
 };
+```
+__POSIX__(Portable Operating System Interface)란 유닉스 계열의 운영체제에 적용하기 위한 표준을 의미한다. 즉 POSIX에서는 다음과 같이 추가로 자료형을 정의하고 있다.  
+
+>헤더파일 sys/type.h에 선언된 자료형  
+```c
+int8_t    // signed 8-bit int  
+uint8_t   // unsigned 8-bit int (unsigned char)  
+int16_t   // signed 16-bit int  
+uint16_t  // unsigned 16-bit int (unsigned short)  
+int32_t   // signed 32-bit int  
+uint32_t  // unsigned 32-bit int (unsigned long)  
+```
+
+>헤더파일 sys/socket.h에 선언된 자료형  
+```c
+sa_family_t   // 주소체계 (address family)  
+socklen_t     // 길이정보 (length of struct)  
+```
+
+>헤더파일 netinet/in.h에 선언된 자료형  
+```c
+in_addr_t     // IP 주소 정보, uint32_t로 정의되어 있음  
+in_port_t     // PORT 번호 정보, uint16_t로 정의되어 있음  
+```
