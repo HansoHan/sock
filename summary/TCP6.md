@@ -3,7 +3,7 @@
 * **TCP 서버**에서의 기본적인 함수 호출 순서
 socket() 소켓생성 -> bind() 소켓 주소 할당 -> listen() 연결요청 대기 상태 -> accept() 연결 허용 -> read()/write() 데이터 송수신 -> close() 연결 종료  
 
-* 연결 요청 대기 상태로의 진입
+* 연결 요청 대기 상태로의 진입  
 listen 함수가 호출되어야, 클라이언트는 연결 요청을 위해서 connect 함수를 호출할 수 있다.  
 ```c
 #include <sys/socket.h>
