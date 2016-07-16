@@ -84,4 +84,7 @@ struct sockaddr
   sa_family_t   sin_family;  //주소체계, address family  
   char          sa_data[14]; //주소정보
 };
-```
+```  
+결국 인자전달을 위한 __형변환__을 통해서 sockaddr 구조체 변수에 bind 함수가 요구하는 바대로 데이터를 채워 넣은 효과를 볼 수 있다.  
+
+구조체 sockaddr은 IPv4의 주소정보만을 담기 위해 정의된 구조체가 아니다. 따라서 구조체 sockaddr에서는 주소체계 정보를 구조체 멤버 sin_family에 저장할 것을 요구하고 있다.  
