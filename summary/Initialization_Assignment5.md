@@ -62,6 +62,6 @@ __127.0.0.1__을 가리켜 루프백 주소(loopback address)라 하며 이는 �
 int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);  //성공 시 0, 실패 시 -1 반환.
 ```
 >sockfd : 주소 정보를(IP와 PORT를) 할당할 소켓의 **파일 디스크립터**.  
-myaddr : 할당하고자 하는 주소정보를 지니는 구조체 변수의 **주소 값**.
+myaddr : 할당하고자 하는 주소정보를 지니는 구조체 변수의 **주소 값**.  
 addrlen : 두 번째 인자로 전달된 구조체 변수의 길이정보.  
 
