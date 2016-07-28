@@ -41,7 +41,8 @@ int main(int argc, char *argv[])
 	printf("Input usage : <data size> <message> \n");
        	printf("Input message 1 : ");
 	scanf("%d %s", (int*)message, (char*)((int*)message+1));
-	write(clnt_sock, message, strlen(message));
+	fgetc(stdin);
+	write(clnt_sock, message, BUF_SIZE);
 
 	close(clnt_sock);
 	close(serv_sock);

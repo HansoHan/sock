@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
 	else
 		puts("Connected.....");
 	
-	recv_len=read(sock, message, BUF_SIZE-1);
+	recv_len=read(sock, message, BUF_SIZE);
 	message[recv_len]=0;
 	printf("Message exchange 1 \n");
-	printf("Message from server : %d %s \n", message, (int*)message+1);
+	printf("Message from server : %d %s \n", (int*)message[0], (char*)((int*)message+1));
 
 	close(sock);
 	return 0;
