@@ -108,4 +108,55 @@ int main(void)
 ```c
 #include <stdio.h>
 
-int main(void
+int main(void)
+{
+    FILE * fp=fopen("simple.txt", "wt");
+    char str[30];
+    int ch;
+    if(fp==NULL){
+        puts("파일 오픈 실패");
+        return -1;
+    }
+    
+    fputc('A', fp);
+    fputc('B', fp);
+    fputs("My name is Dan \n", fp);
+    fputs("Your name is Hank \n", fp);
+    fclose(fp);
+    
+    fp=fopen("simple.txt", "rt");
+    if(fp==NULL){
+        puts("파일 오픈 실패");
+        return -1;
+    }
+    
+    ch=fgetc(fp);
+    printf("%c \n", ch);
+    ch=fgetc(fp);
+    printf("%c \n", ch);
+    
+    fgets(str, sizeof(str), fp);
+    printf("%s", str);
+    fgets(str, sizeof(str), fp);
+    printf("%s", str);
+    
+    fclose(fp);
+    return 0;
+}
+```
+
+* feof 함수 기반의 파일 복사 프로그램  
+때로는 파일의 마지막에 저장된 데이터까지 모두 읽어 들여야 하는 상황이 존재한다. 파일의 끝을 확인하는 방법이 필요한데, feof 함수가 이러한 목적으로 정의된 함수이다.  
+```c
+#include <stdio.h>
+int feof(FILE * stream);  // 파일의 끝에 도달한 경우 0이 아닌 값 반환.
+```
+***
+
+* **바이너리** 데이터의 입출력 : **fread**, **fwrite**  
+```c
+#include <stdio.h>
+size_t fread(void * buffer, size_t size, size_t count, FILE * stream);
+
+// 성공 시 전달인자 count, 실패 또는 파일의 끝 도달 시 count보다 작은 값 반환. 
+```
