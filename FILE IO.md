@@ -165,7 +165,7 @@ size_t fread(void * buffer, size_t size, size_t count, FILE * stream);
 int buf[12];
 fread((void*) buf, sizeof(int), 12, fp);
 // sizeof(int) 크기의 데이터 12개를 fp로부터 읽어 들여서 배열 buf에 저장하라.
-// 그리고 이 함수는 실제로 읽어 들인 데이터의 "갯수"를 반환한다 -> count 값.
+// 그리고 이 함수는 "실제로 읽어 들인" 데이터의 "갯수"를 반환한다.
 ```
 
 
