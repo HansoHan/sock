@@ -105,3 +105,7 @@ int main(void)
 바이너리 모드 : **rb, wb, ab, r+b, w+b, a+b**  
 
 ##File IO 함수의 기본  
+```c
+#include <stdio.h>
+
+int main(void
