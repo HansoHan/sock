@@ -160,3 +160,24 @@ size_t fread(void * buffer, size_t size, size_t count, FILE * stream);
 
 // 성공 시 전달인자 count, 실패 또는 파일의 끝 도달 시 count보다 작은 값 반환. 
 ```
+< 예시 >  
+```c
+int buf[12];
+fread((void*) buf, sizeof(int), 12, fp);
+// sizeof(int) 크기의 데이터 12개를 fp로부터 읽어 들여서 배열 buf에 저장하라.
+// 그리고 이 함수는 실제로 읽어 들인 데이터의 "갯수"를 반환한다 -> count 값.
+```
+
+
+```c
+#include <stdio.h>
+size_t fwrite(const void * buffer, size_t size, size_t count, FILE * stream);
+
+// 성공 시 전달인자 count, 실패 시 count보다 작은 값 반환.
+```
+< 예시 >
+```c
+int buf[7]={1, 2, 3, 4, 5, 6, 7};
+fwrite((void*)buf, sizeof(int), 7, fp);
+//sizeof(int) 크기의 데이터 7개를 buf로부터 읽어서 fp에 저장하라.
+```
