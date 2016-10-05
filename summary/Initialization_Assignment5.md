@@ -7,8 +7,10 @@ char *serv_ip="211.217.168.13";
 char *serv_port="9190";
 memset(&addr, 0, sizeof(addr));
 addr.sin_family=AF_INET;
-addr.sin_addr.s_addr=inet_addr(serv_ip);  //문자열 기반의 IP 주소 초기화
-addr.sin_port=htons(atoi(serv_port));     //문자열 기반의 PORT 번호 초기화
+addr.sin_addr.s_addr=inet_addr(serv_ip);  
+//문자열 기반의 IP 주소 초기화
+addr.sin_port=htons(atoi(serv_port));     
+//문자열 기반의 PORT 번호 초기화
 ```
 memset 함수는 동일한 값으로 바이트 단위 초기화를 할 때 호출하는 함수이다.  
 atoi 함수는 문자열로 표현되어 있는 값을 정수로 변환해서 반환한다.  
@@ -19,13 +21,15 @@ atoi 함수는 문자열로 표현되어 있는 값을 정수로 변환해서 �
 ```c
 #include <arpa/inet.h>
 
-in_addr_t inet_addr(const char *string);  //성공 시 Big Endian으로 변환된 32비트 정수 값, 실패 시 INADDR_NONE 반환 
+in_addr_t inet_addr(const char *string);  
+//성공 시 Big Endian으로 변환된 32비트 정수 값, 실패 시 INADDR_NONE 반환 
 ```
 *inet_aton 함수는 구조체 변수 in_addr를 이용하는 형태라는 점에서 위 함수와 차이를 보인다.*
 ```c
 #include <arpa/inet.h>
 
-int inet_aton(const char * string, struct in_addr * addr); //성공 시 1(true), 실패 시 0(false) 반환
+int inet_aton(const char * string, struct in_addr * addr);
+//성공 시 1(true), 실패 시 0(false) 반환
 ```
 >string : 변환할 IP주소 정보를 담고 있는 문자열의 주소 값 전달.  
 addr : 변환된 정보를 저장할 in_addr 구조체 변수의 주소 값 전달.  
@@ -35,7 +39,8 @@ addr : 변환된 정보를 저장할 in_addr 구조체 변수의 주소 값 전�
 ```c
 #include <arpa/inet.h>
 
-char * inet_ntoa(struct in_addr adr);  //성공 시 변환된 문자열의 주소 값, 실패 시 -1 반환.
+char * inet_ntoa(struct in_addr adr);  
+//성공 시 변환된 문자열의 주소 값, 실패 시 -1 반환.
 ```
 주의할 점은, 반환형이 char형 포인터라는 사실이다.  
 "함수 내부적으로 메모리 공간을 할당해서 변환된 문자열 정보를 저장한다. 따라서 이 함수 호출 후에는 가급적 반환된 문자열 정보를 다른 메모리 공간에 복사해 두는 것이 좋다."  
@@ -59,7 +64,8 @@ __127.0.0.1__을 가리켜 루프백 주소(loopback address)라 하며 이는 �
 ```c
 #include <sys/socket.h>
 
-int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);  //성공 시 0, 실패 시 -1 반환.
+int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);  
+//성공 시 0, 실패 시 -1 반환.
 ```
 >sockfd : 주소 정보를(IP와 PORT를) 할당할 소켓의 **파일 디스크립터**.  
 myaddr : 할당하고자 하는 주소정보를 지니는 구조체 변수의 **주소 값**.  
