@@ -20,7 +20,8 @@ stderr : 표준 에러 스트림, 모니터 대상으로 출력.
 #include <stdio.h>
 
 int putchar(int c);
-int fputc(int c, FILE * stream);  // 함수 호출 성공 시 쓰여진 문자 정보가, 실패 시 EOF 반환.
+int fputc(int c, FILE * stream);  
+// 함수 호출 성공 시 쓰여진 문자 정보가, 실패 시 EOF 반환.
 ```
 **putchar** 함수는 인자로 전달된 문자 정보를 stdout으로 표현되는 표준 출력 스트림으로 전송하는 함수이다.  
 단, **fputc** 함수는 문자를 전송할 스트림을 지정할 수 있다. 즉 fputc 함수를 이용하면 stdout 뿐만 아니라, 파일을 대상으로도 데이터를 전송할 수 있다.  
@@ -67,7 +68,8 @@ scanf 함수는 공백이 포함된 형태의 문자열을 입력 받는데 제�
 #include <stdio.h>
 
 int puts(const char * s);
-int fputs(const char * s, FILE * stream);  // 성공 시 음수가 아닌 값을, 실패 시 EOF 반환.
+int fputs(const char * s, FILE * stream);  
+// 성공 시 음수가 아닌 값을, 실패 시 EOF 반환.
 ```
 두 함수 사이에 있는 중요한 차이 : **puts 함수가 호출되면 문자열 출력 후 자동으로 개행이 이뤄지지만, fputs 함수가 호출되면 문자열 출력 후 자동으로 개행이 이뤄지지 않는다.**  
 
@@ -76,7 +78,8 @@ int fputs(const char * s, FILE * stream);  // 성공 시 음수가 아닌 값을
 #include <stdio.h>
 
 char * gets(char * s);
-char * fgets(char * s, int n, FILE * stream);  // 파일에 끝에 도달하거나, 함수호출 실패 시 NULL 포인터 반환.
+char * fgets(char * s, int n, FILE * stream);  
+// 파일에 끝에 도달하거나, 함수호출 실패 시 NULL 포인터 반환.
 ```
 < 예시 >  
 ```c
@@ -84,8 +87,9 @@ int main(void)
 {
   char str[7];
   gets(str);
-  fgets(str, sizeof(str), stdin);  // sizeof(str)의 길이만큼만 저장해라. 
-                                   //문자열을 입력 받으면 문자열의 끝에 자동으로 널 문자가 추가된다.
+  fgets(str, sizeof(str), stdin);  
+  // sizeof(str)의 길이만큼만 저장해라. 
+  //문자열을 입력 받으면 문자열의 끝에 자동으로 널 문자가 추가된다.
 }
 ```
 ```c
