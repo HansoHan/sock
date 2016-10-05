@@ -13,7 +13,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int open(const char *path, int flag); // 성공 시 파일 디스크립터, 실패 시 -1 반환
+int open(const char *path, int flag); 
+// 성공 시 파일 디스크립터, 실패 시 -1 반환
 ```  
 **path** : 파일 이름을 나타내는 문자열의 주소 값 전달.  
 **flag** : 파일의 오픈 모드 정보 전달.
@@ -39,7 +40,8 @@ int close(int fd); // 성공 시 0, 실패 시 -1 반환
 ```C
 #include <unistd.h>
 
-ssize_t write(int fd, const void *buf, size_t nbytes); // 성공 시 전달한 바이트 수, 실패 시 -1 반환
+ssize_t write(int fd, const void *buf, size_t nbytes); 
+// 성공 시 전달한 바이트 수, 실패 시 -1 반환
 ```
 **fd** 데이터 전송대상을 나타내는 파일 디스트립터 전달.  
 **buf** 전송할 데이터가 저장된 버퍼의 주소 값 전달.  
@@ -54,7 +56,8 @@ size_t는 typedef 선언을 통해서 unsigned int로 정의되어 있다. 그�
 ```C
 #include <unistd.h>
 
-ssize_t read(int fd, void *buf, size_t nbytes); // 성공 시 수신한 바이트 수(단 파일의 끝을 만나면 0), 실패 시 -1 반환.
+ssize_t read(int fd, void *buf, size_t nbytes); 
+// 성공 시 수신한 바이트 수(단 파일의 끝을 만나면 0), 실패 시 -1 반환.
 ```
 **fd** 데이터 수신대상을 나타내는 파일 디스크립터 전달.  
 **buf** 수신한 데이터를 저장할 버퍼의 주소 값 전달.  
