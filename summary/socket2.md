@@ -3,7 +3,8 @@
 ```C
 #include <sys/socket.h>
 
-int socket(int domain, int type, int protocol); //성공 시 파일 디스크립터, 실패 시 -1 반환
+int socket(int domain, int type, int protocol); 
+//성공 시 파일 디스크립터, 실패 시 -1 반환
 ```
 __domain__ 소켓이 사용할 프로토콜 체계(Protocol Family) 정보 전달.  
 __type__ 소켓의 데이터 전송 방식에 대한 정보 전달.  
@@ -42,10 +43,11 @@ _실제 소켓이 사용할 최종 프로토콜 정보는 socket 함수의 세�
 
 ***
 * 프로토콜의 최종 선택  
-세 번째 인자로 그냥 0을 넘겨줘도 우리가 원하는 소켓을 생성할 수 있다.  하지만 하나의 프로토콜 체계 안에 데이터의 전송방식이 동일한 프로토콜이 둘 이상 존재하는 경우 때문에 세 번째 인자는 필요하다.
+세 번째 인자로 그냥 0을 넘겨줘도 우리가 원하는 소켓을 생성할 수 있다. 하지만 하나의 프로토콜 체계 안에 데이터의 전송방식이 동일한 프로토콜이 둘 이상 존재하는 경우 때문에 세 번째 인자는 필요하다.
 ```c
 #include <sys/socket.h>
 
-int tcp_socket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP); //이 경우 IPPROTO_TCP는 생략 가능하다. 이 자리에 0을 쓸 수 있다.
+int tcp_socket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP); 
+//이 경우 IPPROTO_TCP는 생략 가능하다. 이 자리에 0을 쓸 수 있다.
 int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTP_UDP);
 ```
