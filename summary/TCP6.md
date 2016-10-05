@@ -18,7 +18,8 @@ backlog : 연결 요청 대기 큐(Queue)의 크기 정보 전달.
 ```c
 #include <sys/socket.h>
 
-int accept(int sock, struct sockaddr * addr, socklen_t * addrlen);  //성공 시 생성된 소켓의 파일 디스크립터, 실패 시 -1 반환.
+int accept(int sock, struct sockaddr * addr, socklen_t * addrlen);  
+//성공 시 생성된 소켓의 파일 디스크립터, 실패 시 -1 반환.
 ```
 >sock : 서버 소켓의 파일 디스크립터 전달.  
 addr : 연결요청한 _**클라이언트의 주소 정보를 담을 변수**_의 주소 값 전달.  
@@ -34,7 +35,8 @@ socket() -> connect() 연결요청 -> read()/write() -> close()
 ```c
 #include <sys/socket.h>
 
-int connect(int sock, struct sockaddr * servaddr, socklen_t addrlen);  //성공 시 0, 실패 시 -1 반환.
+int connect(int sock, struct sockaddr * servaddr, socklen_t addrlen);  
+//성공 시 0, 실패 시 -1 반환.
 ```
 >sock : 클라이언트 소켓의 파일 디스크립터 전달.  
 servaddr : 연결요청 할 **서버의 주소정보**를 담은 변수의 주소 값 전달.  
