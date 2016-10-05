@@ -3,7 +3,8 @@
 문자열의 길이를 반환하는 함수 : **strlen**  
 ```c
 #include <string.h>
-size_t strlen(const char * s);  // 전달되 문자열의 길이를 반환하되, "널 문자는 길이에 포함하지 않는다."
+size_t strlen(const char * s);  
+// 전달되 문자열의 길이를 반환하되, "널 문자는 길이에 포함하지 않는다."
 ```
 
 ```c
@@ -16,7 +17,8 @@ typedef unsigned int size_t;
 ```c
 #include <string.h>
 char * strcpy(char * dest, const char * src);
-char * strncpy(char * dest, const char * src, size_t n);  // 복사된 문자열의 주소 값 반환.
+char * strncpy(char * dest, const char * src, size_t n);  
+// 복사된 문자열의 주소 값 반환.
 ```
 < 예시 >
 ```c
@@ -40,7 +42,8 @@ strncpy 함수 호출문의 의미 : src에 저장된 문자열을 dest에 복�
 ```c
 #include <string.h>
 char * strcat(char * dest, const char * src);
-char * strncat(char * dest, const char * src, size_t n);  // 덧붙여진 문자열의 주소 값 반환.
+char * strncat(char * dest, const char * src, size_t n);  
+// 덧붙여진 문자열의 주소 값 반환.
 ```
 덧붙임이 시작되는 위치는 널 문자 다음이 나닌, 널 문자가 저장된 위치에서부터이다.  
 strncpy 함수와 달리 strncat 함수는 문자열의 끝에 널 문자를 자동으로 삽입해준다.  
@@ -51,6 +54,7 @@ strncpy 함수와 달리 strncat 함수는 문자열의 끝에 널 문자를 자
 ```c
 #include <string.h>
 int strcmp(const char * s1, const char * s2);
-int strncmp(const char * s1, const char * s2, size_t n);  // 두 문자열의 내용이 "같으면 0", 같지 않으면 0이 아닌 값 반환.
+int strncmp(const char * s1, const char * s2, size_t n);  
+// 두 문자열의 내용이 "같으면 0", 같지 않으면 0이 아닌 값 반환.
 ```
 
